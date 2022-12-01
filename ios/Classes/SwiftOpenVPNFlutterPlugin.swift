@@ -3,7 +3,7 @@ import UIKit
 import NetworkExtension
 
 public class SwiftOpenVPNFlutterPlugin: NSObject, FlutterPlugin {
-    private static var utils : VPNUtils! = VPNUtils()
+    public static var utils : VPNUtils! = VPNUtils()
     
     private static var EVENT_CHANNEL_VPN_STAGE : String = "id.laskarmedia.openvpn_flutter/vpnstage"
     private static var METHOD_CHANNEL_VPN_CONTROL : String = "id.laskarmedia.openvpn_flutter/vpncontrol"
@@ -108,7 +108,7 @@ public class SwiftOpenVPNFlutterPlugin: NSObject, FlutterPlugin {
 
 
 @available(iOS 9.0, *)
-class VPNUtils {
+public class VPNUtils {
     var providerManager: NETunnelProviderManager!
     var providerBundleIdentifier : String?
     var localizedDescription : String?
@@ -243,7 +243,7 @@ class VPNUtils {
         
     }
     
-    func stopVPN() {
+    public func stopVPN() {
         self.providerManager.connection.stopVPNTunnel();
     }
     
